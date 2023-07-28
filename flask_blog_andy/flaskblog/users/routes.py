@@ -80,12 +80,6 @@ def user_posts(username):
         .paginate(page=page, per_page=5)
     return render_template('user_posts.html', posts=posts, user=user)
 
-        user.password = hashed_password
-        db.session.commit()
-        flash('Your password has been updated! You can now log in.', 'success')
-        return redirect(url_for('users.login'))
-    return render_template('reset_token.html', title='Reset Password', form=form)
-
 
 @users.route('/reset_password', methods=['GET', 'POST'])
 def reset_request():
